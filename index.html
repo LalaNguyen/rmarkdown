@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slidify Demo</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Slidify Demo">
+  <meta name="author" content="Minh Nguyen">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Slidify Demo</h1>
+    <h2>HTML5 slides from R Markdown</h2>
+    <p>Minh Nguyen<br/>R Hacker</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Read-And-Delete</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Edit YAML front matter</li>
+<li>Write using R Markdown</li>
+<li>Use an empty line followed by three dashes to separate slides!</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Showing off what can be achieved without leaving RStudio</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This is not serious analysis of Australian employment data. I just had jobs data lying around in  formats that were suited to show how <code>ggplot2</code>, <code>googleVis</code>, <code>Shiny</code> &amp; <code>rCharts</code> could all be implemented into a <code>Slidify</code> presentation.</p>
+
+<div align="center">
+<img src="http://24.media.tumblr.com/tumblr_lrq4pfRwh51r3uvuvo1_500.gif">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Slide 2</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">require(rCharts)
+require(googleVis)
+nodes_network &lt;- read.csv(&quot;~/Development/env/citation_network/nodes_network.csv&quot;, 
+    sep = &quot;;&quot;)
+dataSub &lt;- subset(nodes_network, !(group == 1))
+cdata &lt;- aggregate(dataSub[&quot;id&quot;], by = dataSub[c(&quot;country&quot;)], FUN = length)
+names(cdata) &lt;- c(&quot;Country&quot;, &quot;No.Inventors&quot;)
+Geo = gvisGeoChart(cdata, &quot;Country&quot;, &quot;No.Inventors&quot;, options = list(gvis.editor = &quot;S&amp;P&quot;, 
+    projection = &quot;kavrayskiy-vii&quot;, colorAxis = &quot;{colors:[&#39;#91BFDB&#39;, &#39;#FC8D59&#39;]}&quot;))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Map</h2>
+  </hgroup>
+  <article data-timings="">
+    <!-- GeoChart generated in R 3.1.1 by googleVis 0.5.6 package -->
+
+<!-- Sat Dec  6 23:04:56 2014 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataGeoChartIDe903d631070 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "AE",
+3 
+],
+[
+ "AR",
+5 
+],
+[
+ "AT",
+57 
+],
+[
+ "AU",
+94 
+],
+[
+ "BD",
+1 
+],
+[
+ "BE",
+70 
+],
+[
+ "BR",
+21 
+],
+[
+ "CA",
+224 
+],
+[
+ "CH",
+114 
+],
+[
+ "CL",
+2 
+],
+[
+ "CN",
+273 
+],
+[
+ "CO",
+2 
+],
+[
+ "CU",
+13 
+],
+[
+ "CZ",
+16 
+],
+[
+ "DE",
+809 
+],
+[
+ "DK",
+40 
+],
+[
+ "EE",
+6 
+],
+[
+ "EG",
+1 
+],
+[
+ "ES",
+29 
+],
+[
+ "FI",
+33 
+],
+[
+ "FR",
+331 
+],
+[
+ "GB",
+272 
+],
+[
+ "GT",
+1 
+],
+[
+ "HK",
+16 
+],
+[
+ "HU",
+3 
+],
+[
+ "IE",
+31 
+],
+[
+ "IL",
+58 
+],
+[
+ "IN",
+91 
+],
+[
+ "IS",
+4 
+],
+[
+ "IT",
+95 
+],
+[
+ "JO",
+1 
+],
+[
+ "JP",
+2156 
+],
+[
+ "KP",
+2 
+],
+[
+ "KR",
+947 
+],
+[
+ "KW",
+7 
+],
+[
+ "KY",
+1 
+],
+[
+ "LI",
+1 
+],
+[
+ "LT",
+1 
+],
+[
+ "LU",
+3 
+],
+[
+ "MC",
+2 
+],
+[
+ "MO",
+1 
+],
+[
+ "MX",
+11 
+],
+[
+ "MY",
+8 
+],
+[
+ "NL",
+105 
+],
+[
+ "NO",
+24 
+],
+[
+ "NZ",
+25 
+],
+[
+ "PE",
+1 
+],
+[
+ "PL",
+2 
+],
+[
+ "PT",
+3 
+],
+[
+ "RU",
+9 
+],
+[
+ "SA",
+13 
+],
+[
+ "SE",
+75 
+],
+[
+ "SG",
+59 
+],
+[
+ "SI",
+3 
+],
+[
+ "SK",
+3 
+],
+[
+ "TH",
+3 
+],
+[
+ "TR",
+4 
+],
+[
+ "TT",
+1 
+],
+[
+ "TV",
+1 
+],
+[
+ "TW",
+582 
+],
+[
+ "UA",
+2 
+],
+[
+ "US",
+5494 
+],
+[
+ "VE",
+1 
+],
+[
+ "VN",
+1 
+],
+[
+ "ZA",
+4 
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','No.Inventors');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartGeoChartIDe903d631070() {
+var data = gvisDataGeoChartIDe903d631070();
+var options = {};
+options["width"] =    556;
+options["height"] =    347;
+options["projection"] = "kavrayskiy-vii";
+options["colorAxis"] = {colors:['#91BFDB', '#FC8D59']};
+
+    chartGeoChartIDe903d631070 = new google.visualization.ChartWrapper({
+    dataTable: data,       
+    chartType: 'GeoChart',
+    containerId: 'GeoChartIDe903d631070',
+    options: options
+    });
+    chartGeoChartIDe903d631070.draw();
+    
+
+}
+
+  function openEditorGeoChartIDe903d631070() {
+  var editor = new google.visualization.ChartEditor();
+  google.visualization.events.addListener(editor, 'ok',
+  function() { 
+  chartGeoChartIDe903d631070 = editor.getChartWrapper();  
+  chartGeoChartIDe903d631070.draw(document.getElementById('GeoChartIDe903d631070')); 
+  }); 
+  editor.openDialog(chartGeoChartIDe903d631070);
+  }
+    
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "charteditor";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartGeoChartIDe903d631070);
+})();
+function displayChartGeoChartIDe903d631070() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartIDe903d631070"></script>
+ 
+
+<!-- divChart -->
+
+<p><input type='button' onclick='openEditorGeoChartIDe903d631070()' value='S&P'/>  </p>
+
+<div id="GeoChartIDe903d631070" 
+  style="width: 556; height: 347;">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Read-And-Delete'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Showing off what can be achieved without leaving RStudio'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Slide 2'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Map'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title=''>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
